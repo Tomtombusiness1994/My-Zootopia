@@ -13,12 +13,13 @@ animal_html = ''
 output += '<ul class="cards">'
 for animal in animals_data:
     output += '<li class="cards__item">'
-    output += f"Name: {animal['name']}<br/>"
+    output += f'<div class="card__title">{animal['name']}</div><br/>'
+    output += '<p class="card__text">'
     output += f"Diet: {animal['characteristics']['diet']}<br/>"
     output += f"Location: {animal['locations'][0]}<br/>"
     if "type" in animal["characteristics"]:
         output += f"Type: {animal['characteristics']["type"]}<br/>"
-    output += '</li>'
+    output += '</p></li>'
 output += '</ul>'
 
 with open('animals_template.html', "r") as handle:
