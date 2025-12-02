@@ -11,14 +11,22 @@ output = ''
 animal_html = ''
 
 output += '<ul class="cards">'
-for animal in animals_data:
-    output += '<li class="cards__item">'
+
+
+def serialize_animal(animal) -> str:
+    output = ''
     output += f'<div class="card__title">{animal['name']}</div><br/>'
     output += '<p class="card__text">'
     output += f"Diet: {animal['characteristics']['diet']}<br/>"
     output += f"Location: {animal['locations'][0]}<br/>"
     if "type" in animal["characteristics"]:
         output += f"Type: {animal['characteristics']["type"]}<br/>"
+    return output
+
+
+for animal in animals_data:
+    output += '<li class="cards__item">'
+    output += serialize_animal(animal)
     output += '</p></li>'
 output += '</ul>'
 
